@@ -1,0 +1,19 @@
+[project]
+name = "pygame-tower-defense"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Steve Welch"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.poetry]
+packages = [{include = "pygame_tower_defense", from = "src"}]
+
+
+[tool.poetry.dependencies]
+gamelib = {path = "../pygamelib", develop = true}
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
