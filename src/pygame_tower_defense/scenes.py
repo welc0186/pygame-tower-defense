@@ -9,6 +9,7 @@ from gamelib.ecs import (
     PositionComponent,
 )
 from gamelib.tiles.tiles import TileMap
+from gamelib.tiles.tmx import TmxImageTileMap
 import pygame
 
 
@@ -21,10 +22,9 @@ RED = 255, 0, 0
 
 
 def create_backdrop() -> pygame.Surface:
-    def csv_tile_mapper(value: int) -> pygame.Surface | None:
-        return SPRITE_SHEET.get_by_index(value)
-
-    sprite_tilemap = TileMap.from_csv(CSV_MAP, mapper=csv_tile_mapper, tilesize=64)
+    sprite_tilemap = TmxImageTileMap(
+        join("assets", "Tiled", "pygame_tower_defense.tmx")
+    )
     return sprite_tilemap.generate_surface()
 
 
